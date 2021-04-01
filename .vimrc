@@ -1,9 +1,14 @@
+" *************************
+" VIM Initialization script. Version 0.0.1
+" **************************
 " Common option setup
 set tabstop=4
 set shiftwidth=4
 set smarttab
 set expandtab
 set number
+" Shortcut setup
+nmap <F8> :TagbarToggle<CR>
 " Install and setup Plugin Manager
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
