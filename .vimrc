@@ -1,3 +1,9 @@
+" Common option setup
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+set number
 " Install and setup Plugin Manager
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
