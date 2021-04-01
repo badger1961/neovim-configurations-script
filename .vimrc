@@ -13,6 +13,9 @@ endif
 call plug#begin('~/.vim/bundle')
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-syntastic/syntastic'
+Plug 'preservim/tagbar'
 call plug#end() 
 " end of plugins definition
 " Setup vin-airline Rish status bar
