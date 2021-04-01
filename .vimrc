@@ -7,6 +7,11 @@ set shiftwidth=4
 set smarttab
 set expandtab
 set number
+" Cursor option
+" Insert mode
+let &t_SI = "\e[4 q"
+" Normal mode
+let &t_EI = "\e[2 q"
 " Shortcut setup
 nmap <F8> :TagbarToggle<CR>
 " Install and setup Plugin Manager
@@ -18,7 +23,8 @@ endif
 call plug#begin('~/.vim/bundle')
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'Valloric/YouCompleteMe'
+" Current version requires additional setup and does not eork from box
+"Plug 'Valloric/YouCompleteMe'
 Plug 'vim-syntastic/syntastic'
 Plug 'preservim/tagbar'
 call plug#end() 
