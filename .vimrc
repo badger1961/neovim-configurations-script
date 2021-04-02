@@ -1,3 +1,13 @@
+" Global configuration
+set number
+set nocompatible
+set encoding=utf-8
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+" File Type Configuration
+filetype plugin indent on
 " Install and setup Plugin Manager
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
