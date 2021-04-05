@@ -92,3 +92,5 @@ let g:ctrlp_custom_ignore = {
 nmap <F8> :TagbarOpen fjc<CR>
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F6> :CtrlP<CR>
+nnoremap <F12> "=strftime("%d/%m/%y %H:%M")<CR>P
+inoremap <F12> <C-R>=strftime("%d/%m/%y %H:%M")<CR>
