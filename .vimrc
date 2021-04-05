@@ -1,0 +1,94 @@
+" *************************
+" VIM Initialization script. Version 0.1
+" **************************
+" **************************
+" Common option setup
+" **************************
+set number
+set nocompatible
+set encoding=utf-8
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+set number
+"**************************
+" Cursor option
+" *************************
+" Insert mode
+let &t_SI = "\e[4 q"
+" Normal mode
+let &t_EI = "\e[2 q"
+" *************************
+" File Type Configuration
+" *************************
+filetype plugin indent on
+" ****************************************
+" Plugin and Plugin Manager Configuration
+" ****************************************
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+" ****************************************
+" begin lugins  definition
+" ****************************************
+call plug#begin('~/.vim/bundle')
+" Status Line Plugin
+Plug 'vim-airline/vim-airline'
+" GIT management plugin
+Plug 'tpope/vim-fugitive'
+" Current version requires additional setup and does not work from box
+" YCM server shutdown often. Configuration requirer python 3.8 headers
+"Plug 'Valloric/YouCompleteMe'
+" Syntax checker for C++ plugin
+Plug 'vim-syntastic/syntastic'
+" TAG handler plugin
+Plug 'preservim/tagbar'
+" File Tree
+Plug 'scrooloose/nerdtree'
+" Python Mode
+Plug 'klen/python-mode'
+" Search 
+Plug 'ctrlpvim/ctrlp.vim'
+" Tags handler
+Plug 'ludovicchabant/vim-gutentags'
+call plug#end() 
+" end of plugins definition
+" ***********************************
+" Setup GutenTag
+" ***********************************
+let g:gutentags_ctags_extra_args = [
+      \ '--tag-relative=yes',
+      \ '--fields=+ailmnS',
+      \ ]
+set statusline+=%{gutentags#statusline()}
+let g:gutentags_project_root = ['.git']
+let g:gutentags_generate_on_write=1
+let g:gutentags_generate_on_missing=1
+let g:gutentags_generate_on_new=1
+let g:gutentags_file_list_command = 'find . -type f'
+" ***********************************
+" Setup vin-airline Rish status bar
+" ***********************************
+let g:airline_powerline_fonts = 1 
+let g:airline#extensions#keymap#enabled = 0
+let g:airline_section_z = "\ue0a1:%l/%L Col:%c"
+let g:Powerline_symbols='unicode'
+let g:airline#extensions#xkblayout#enabled = 0
+" **********************************
+" Setup ControP
+"***********************************
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_switch_buffer = 'et'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+" *************************
+" Shortcut setup
+" *************************
+nmap <F8> :TagbarOpen fjc<CR>
+nmap <F2> :NERDTreeToggle<CR>
+nmap <F6> :CtrlP<CR>
