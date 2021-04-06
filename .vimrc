@@ -12,13 +12,6 @@ set shiftwidth=4
 set smarttab
 set expandtab
 set number
-"**************************
-" Cursor option does not work in KDE Konsole
-" *************************
-" Insert mode
-" let &t_SI = "\e[4 q"
-" Normal mode
-" let &t_EI = "\e[2 q"
 " *************************
 " File Type Configuration
 " *************************
