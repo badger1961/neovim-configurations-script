@@ -13,12 +13,12 @@ set smarttab
 set expandtab
 set number
 "**************************
-" Cursor option
+" Cursor option does not work in KDE Konsole
 " *************************
 " Insert mode
-let &t_SI = "\e[4 q"
+" let &t_SI = "\e[4 q"
 " Normal mode
-let &t_EI = "\e[2 q"
+" let &t_EI = "\e[2 q"
 " *************************
 " File Type Configuration
 " *************************
@@ -53,6 +53,8 @@ Plug 'klen/python-mode'
 Plug 'ctrlpvim/ctrlp.vim'
 " Tags handler
 Plug 'ludovicchabant/vim-gutentags'
+" RobotFramework
+Plug 'mfukar/robotframework-vim'
 call plug#end() 
 " end of plugins definition
 " ***********************************
