@@ -48,6 +48,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ludovicchabant/vim-gutentags'
 " RobotFramework
 Plug 'mfukar/robotframework-vim'
+" Clang Format support
+Plug 'rhysd/vim-clang-format'
 call plug#end() 
 " end of plugins definition
 " ***********************************
