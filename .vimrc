@@ -49,6 +49,8 @@ Plug 'mfukar/robotframework-vim'
 " FZF Framework
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" Clang Format support
+Plug 'rhysd/vim-clang-format'
 call plug#end() 
 " end of plugins definition
 " ***********************************
