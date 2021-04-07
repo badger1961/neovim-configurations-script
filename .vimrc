@@ -42,12 +42,13 @@ Plug 'preservim/tagbar'
 Plug 'scrooloose/nerdtree'
 " Python Mode
 Plug 'klen/python-mode'
-" Search 
-Plug 'ctrlpvim/ctrlp.vim'
 " Tags handler
 Plug 'ludovicchabant/vim-gutentags'
 " RobotFramework
 Plug 'mfukar/robotframework-vim'
+" FZF Framework
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end() 
 " end of plugins definition
 " ***********************************
@@ -71,21 +72,11 @@ let g:airline#extensions#keymap#enabled = 0
 let g:airline_section_z = "\ue0a1:%l/%L Col:%c"
 let g:Powerline_symbols='unicode'
 let g:airline#extensions#xkblayout#enabled = 0
-" **********************************
-" Setup ControP
-"***********************************
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_switch_buffer = 'et'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
 " *************************
 " Shortcut setup
 " *************************
 nmap <F8> :TagbarOpen fjc<CR>
 nmap <F2> :NERDTreeToggle<CR>
-nmap <F6> :CtrlP<CR>
+"nmap <F6> :CtrlP<CR>
 nnoremap <F12> "=strftime("%d/%m/%y %H:%M")<CR>P
 inoremap <F12> <C-R>=strftime("%d/%m/%y %H:%M")<CR>
