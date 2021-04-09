@@ -1,5 +1,5 @@
 " *************************
-" VIM Initialization script. Version 0.2
+" VIM Initialization script. Version 0.3
 " **************************
 " **************************
 " Common option setup
@@ -12,6 +12,8 @@ set shiftwidth=4
 set smarttab
 set expandtab
 set number
+set noerrorbells
+set exrc
 " *************************
 " File Type Configuration
 " *************************
