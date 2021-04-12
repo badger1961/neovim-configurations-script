@@ -6,7 +6,7 @@ Right Now the following plugins are included
 1. vim-airline/vim-airlibe - https://github.com/vim-airline/vim-airline
 2. tpope/vim-fugitive - https://github.com/tpope/vim-fugitive
 3. Valloric/YouCompleteMe - https://github.com/ycm-core/YouCompleteMe. Temporary is disabled, due to problem in configuration. YCM server shutdown very often
-4. vim-syntastic/syntastic - https://github.com/vim-syntastic/syntastic. - Temporary disabled due to problem in configuration
+4. vim-syntastic/syntastic - https://github.com/vim-syntastic/syntastic.
 5. preservim/tagbar - https://github.com/preservim/tagbar
 6. scrooloose/nerdtree - https://github.com/preservim/nerdtree 
 7. klen/python-mode - https://github.com/python-mode/python-mode
