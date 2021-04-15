@@ -14,4 +14,7 @@ Right Now the following plugins are included
 9. use fzf instead junegunn/fzf.vim
 10. ludovicchabant/vim-gutentags - https://github.com/ludovicchabant/vim-gutentags
 
-Many thanks for owner of mentioned abpve plugins
+Many thanks for owner of mentioned above plugins
+
+Visual Studio Code 
+1. Save settings by script : https://gist.github.com/wonderbeyond/661c686b64cb0cabb77a43b49b16b26e
