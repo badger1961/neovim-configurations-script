@@ -1,5 +1,5 @@
 " *************************
-" VIM Initialization script. Version 0.2
+" VIM Initialization script. Version 0.3
 " **************************
 " **************************
 " Common option setup
@@ -12,6 +12,8 @@ set shiftwidth=4
 set smarttab
 set expandtab
 set number
+set noerrorbells
+set exrc
 " *************************
 " File Type Configuration
 " *************************
@@ -54,6 +56,10 @@ Plug 'rhysd/vim-clang-format'
 call plug#end() 
 " end of plugins definition
 " ***********************************
+" FZF Options
+" ***********************************
+let g:fzf_command_prefix = 'Fzf'
+" ***********************************
 " Setup GutenTag
 " ***********************************
 let g:gutentags_ctags_extra_args = [
@@ -79,6 +85,8 @@ let g:airline#extensions#xkblayout#enabled = 0
 " *************************
 nmap <F8> :TagbarOpen fjc<CR>
 nmap <F2> :NERDTreeToggle<CR>
-"nmap <F6> :CtrlP<CR>
+nmap <F7> :FzfFiles<CR>
+nmap <F9> :FzfBuffers<CR>
+nmap <F11> :FzfGfiles?<CR>
 nnoremap <F12> "=strftime("%d/%m/%y %H:%M")<CR>P
 inoremap <F12> <C-R>=strftime("%d/%m/%y %H:%M")<CR>
