@@ -9,6 +9,12 @@
     (string-equal system-type "gnu/linux"))
 (defun system-is-windows()
   (string-equal system-type "windows-nt"))
+(defun format-current-buffer()
+    (indent-region (point-min) (point-max)))
+(defun untabify-current-buffer()
+    (if (not indent-tabs-mode)
+        (untabify (point-min) (point-max)))
+    nil)
 ;; Third party package initialization
 ;;***********************************************************
 (require 'package)
@@ -38,6 +44,9 @@
  '(tab-bar-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces)
+(setq-default tab-width          4)
+(setq-default c-basic-offset     4)
+(setq-default standart-indent    4)
 ;;******************************************************************
 ;; File operation customization
 ;;*****************************************************************
@@ -63,8 +72,27 @@
 (setq display-time-24hr-format t)
 (display-time-mode t)
 (size-indication-mode t)
+;;************************************************************
+;;Searching customization
+;;***********************************************************
+;; Highlight search resaults
+(setq search-highlight        t)
+(setq query-replace-highlight t)
 ;;*************************************************************
 ;; Text Edition Mode
 ;;************************************************************
 (electric-pair-mode    1) ;; add close {},[],()
-(setq-default indicate-empty-lines t) 
+(setq-default indicate-empty-lines t)
+(delete-selection-mode t)
+;;(add-to-list 'write-file-functions 'format-current-buffer)
+;;(add-to-list 'write-file-functions 'untabify-current-buffer)
+;;(add-to-list 'write-file-functions 'delete-trailing-whitespace)
+;; Bookmark settings
+(require 'bookmark)
+(setq bookmark-save-flag t)
+(when (file-exists-p (concat user-emacs-directory "bookmarks"))
+    (bookmark-load bookmark-default-file t))
+(global-set-key (kbd "<f3>") 'bookmark-set) 
+(global-set-key (kbd "<f4>") 'bookmark-jump)
+(global-set-key (kbd "<f5>") 'bookmark-bmenu-list)
+(setq bookmark-default-file (concat user-emacs-directory "bookmarks")) 
