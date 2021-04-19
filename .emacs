@@ -21,6 +21,9 @@
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
+;; Inhibit startup/splash screen
+(setq inhibit-splash-screen   t)
+(setq ingibit-startup-message t) 
 ;;*******************************************************
 ;; Start Emacs as a server
 ;;******************************************************
