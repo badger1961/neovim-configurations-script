@@ -41,12 +41,18 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
- '(package-selected-packages '(flycheck magit py-autopep8 elpygen elpy))
+ '(package-selected-packages
+   '(cmake-ide cmake-mode flycheck magit py-autopep8 elpygen elpy))
  '(save-place-mode t)
  '(show-paren-mode t)
  '(tab-bar-mode t)
  '(tool-bar-mode nil))
-(custom-set-faces)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 (setq-default tab-width          4)
 (setq-default c-basic-offset     4)
 (setq-default standart-indent    4)
