@@ -43,7 +43,7 @@
  '(cua-mode t nil (cua-base))
  '(display-time-mode t)
  '(package-selected-packages '(clang-format flycheck magit py-autopep8 elpygen elpy))
- '(save-place-mode t)
+   '(cmake-ide cmake-mode flycheck magit py-autopep8 elpygen elpy))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
