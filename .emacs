@@ -41,12 +41,18 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
- '(package-selected-packages '(flycheck magit py-autopep8 elpygen elpy))
+ '(display-time-mode t)
+ '(package-selected-packages '(clang-format flycheck magit py-autopep8 elpygen elpy))
  '(save-place-mode t)
  '(show-paren-mode t)
- '(tab-bar-mode t)
+ '(size-indication-mode t)
  '(tool-bar-mode nil))
-(custom-set-faces)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 (setq-default tab-width          4)
 (setq-default c-basic-offset     4)
 (setq-default standart-indent    4)
@@ -99,3 +105,29 @@
 (global-set-key (kbd "<f4>") 'bookmark-jump)
 (global-set-key (kbd "<f5>") 'bookmark-bmenu-list)
 (setq bookmark-default-file (concat user-emacs-directory "bookmarks")) 
+;;******************************************************************
+;; CEDET Configuration
+;;******************************************************************
+(require 'cedet)
+'(global-semantic-idle-scheduler-mode global-semanticdb-minor-mode)
+(setq semantic-default-submodes
+      '(;; Perform semantic actions during idle time
+        global-semantic-idle-scheduler-mode
+        ;; Use a database of parsed tags
+        global-semanticdb-minor-mode
+        ;; Decorate buffers with additional semantic information
+        global-semantic-decoration-mode
+        ;; Highlight the name of the function you're currently in
+        global-semantic-highlight-func-mode
+        ;; show the name of the function at the top in a sticky
+        global-semantic-stickyfunc-mode
+        ;; Generate a summary of the current tag when idle
+        global-semantic-idle-summary-mode
+        ;; Show a breadcrumb of location during idle time
+        global-semantic-idle-breadcrumbs-mode
+        ;; Switch to recently changed tags with `semantic-mrub-switch-tags',
+        ;; or `C-x B'
+        global-semantic-mru-bookmark-mode))
+(add-hook 'emacs-lisp-mode-hook 'semantic-mode)
+(add-hook 'python-mode-hook 'semantic-mode)
+(add-hook 'c-mode-hook 'semantic-mode)
