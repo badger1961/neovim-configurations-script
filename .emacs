@@ -1,5 +1,5 @@
 ;;************************************************************
-;; Version A0100 
+;; Version A0200 
 ;;************************************************************
 ;; ***********************************************************
 ;; Local Functions
@@ -42,8 +42,7 @@
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
  '(display-time-mode t)
- '(package-selected-packages '(clang-format flycheck magit py-autopep8 elpygen elpy))
-   '(cmake-ide cmake-mode flycheck magit py-autopep8 elpygen elpy))
+ '(package-selected-packages '(clang-format cmake-ide cmake-mode flycheck magit py-autopep8 elpygen elpy))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
@@ -85,6 +84,7 @@
 ;;Searching customization
 ;;***********************************************************
 ;; Highlight search resaults
+
 (setq search-highlight        t)
 (setq query-replace-highlight t)
 ;;*************************************************************
@@ -100,10 +100,12 @@
 (require 'bookmark)
 (setq bookmark-save-flag t)
 (when (file-exists-p (concat user-emacs-directory "bookmarks"))
-    (bookmark-load bookmark-default-file t))
-(global-set-key (kbd "<f3>") 'bookmark-set) 
-(global-set-key (kbd "<f4>") 'bookmark-jump)
-(global-set-key (kbd "<f5>") 'bookmark-bmenu-list)
+  (bookmark-load bookmark-default-file t))
+(global-set-key (kbd "<f2>")  'save-buffer)
+(global-set-key (kbd "<f3>")  'bookmark-set) 
+(global-set-key (kbd "<f4>")  'bookmark-jump)
+(global-set-key (kbd "<f5>")  'bookmark-bmenu-list)
+(global-set-key (kbd "<f12>") 'comint-clear-buffer)
 (setq bookmark-default-file (concat user-emacs-directory "bookmarks")) 
 ;;******************************************************************
 ;; CEDET Configuration
@@ -131,3 +133,7 @@
 (add-hook 'emacs-lisp-mode-hook 'semantic-mode)
 (add-hook 'python-mode-hook 'semantic-mode)
 (add-hook 'c-mode-hook 'semantic-mode)
+;;*****************************************************************
+;; shell configuration
+;;****************************************************************
+(global-set-key (kbd "<f6>") '
