@@ -1,5 +1,5 @@
 ;;************************************************************
-;; Version A0300 
+;; Version A0301 
 ;;************************************************************
 ;; ***********************************************************
 ;; Local Functions
@@ -55,11 +55,12 @@
 (setq-default tab-width          4)
 (setq-default c-basic-offset     4)
 (setq-default standart-indent    4)
+(setq scroll-step            1
+      scroll-conservatively  10000)
 ;;******************************************************************
 ;; File operation customization
 ;;*****************************************************************
 (require 'dired)
-
 (setq dired-recursive-deletes 'top) ;;user is able remove not empty folder
 ;;*******************************************************************
 ;; User Credential
