@@ -1,5 +1,5 @@
 ;;************************************************************
-;; Version A0301 
+;; Version A400
 ;;************************************************************
 ;; ***********************************************************
 ;; Local Functions
@@ -42,7 +42,9 @@
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
  '(display-time-mode t)
- '(package-selected-packages '(clang-format cmake-ide cmake-mode flycheck magit py-autopep8 elpygen elpy))
+ '(package-selected-packages
+   (quote
+	(clang-format+ clang-format cmake-ide cmake-mode flycheck magit py-autopep8 elpygen elpy)))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
@@ -107,7 +109,14 @@
 (global-set-key (kbd "<f4>")  'bookmark-jump)
 (global-set-key (kbd "<f5>")  'bookmark-bmenu-list)
 (global-set-key (kbd "<f12>") 'comint-clear-buffer)
-(setq bookmark-default-file (concat user-emacs-directory "bookmarks")) 
+(setq bookmark-default-file (concat user-emacs-directory "bookmarks"))
+;;******************************************************************
+;; Programm Edition Configuration
+;;******************************************************************
+(setq c-default-style
+      '((java-mode . "java") (other . "linux")))
+;; auto format
+(add-hook 'c-mode-common-hook #'clang-format+-mode)
 ;;******************************************************************
 ;; CEDET Configuration
 ;;******************************************************************
