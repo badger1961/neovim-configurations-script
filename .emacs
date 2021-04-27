@@ -29,6 +29,7 @@
            (concat
             "astyle"
             " --style=break"
+			" --indent-namespaces"
             " --indent=spaces=" (number-to-string c-basic-offset)
             " --pad-oper"
             " --pad-header"
