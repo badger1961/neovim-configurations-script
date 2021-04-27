@@ -15,6 +15,39 @@
     (if (not indent-tabs-mode)
         (untabify (point-min) (point-max)))
     nil)
+;; *****************************************
+;; AStyle function
+;; ****************************************
+(defun astyle-this-buffer ()
+  "Use astyle command to auto format c/c++ code."
+  (interactive "r")
+  (let* ((original-point (point))) ;; save original point before processing, thanks to @Scony
+    (progn
+      (if (executable-find "astyle")
+          (shell-command-on-region
+           (point-min) (point-max)
+           (concat
+            "astyle"
+            " --style=break"
+            " --indent=spaces=" (number-to-string c-basic-offset)
+            " --pad-oper"
+            " --pad-header"
+            " --break-blocks"
+            " --delete-empty-lines"
+            " --align-pointer=type"
+            " --align-reference=name")
+           (current-buffer) t
+           (get-buffer-create "*Astyle Errors*") t)
+        (message "Cannot find binary \"astyle\", please install first."))
+      (goto-char original-point)))) ;; restore original point
+
+(defun astyle-before-save ()
+  "Auto styling before saving."
+  (interactive)
+  (when (member major-mode '(cc-mode c++-mode c-mode))
+    (astyle-this-buffer)))
+
+
 ;; Third party package initialization
 ;;***********************************************************
 (require 'package)
@@ -44,7 +77,7 @@
  '(display-time-mode t)
  '(package-selected-packages
    (quote
-	(clang-format+ clang-format cmake-ide cmake-mode flycheck magit py-autopep8 elpygen elpy)))
+	(astyle cmake-ide cmake-mode flycheck magit py-autopep8 elpygen elpy)))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
@@ -87,7 +120,6 @@
 ;;Searching customization
 ;;***********************************************************
 ;; Highlight search resaults
-
 (setq search-highlight        t)
 (setq query-replace-highlight t)
 ;;*************************************************************
@@ -115,8 +147,8 @@
 ;;******************************************************************
 (setq c-default-style
       '((java-mode . "java") (other . "linux")))
-;; auto format
-(add-hook 'c-mode-common-hook #'clang-format+-mode)
+;; auto format CXX code
+(add-hook 'c-mode-common-hook (lambda () (add-hook 'before-save-hook 'astyle-before-save)))
 ;;******************************************************************
 ;; CEDET Configuration
 ;;******************************************************************
