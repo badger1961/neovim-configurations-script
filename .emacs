@@ -77,8 +77,7 @@
  '(cua-mode t nil (cua-base))
  '(display-time-mode t)
  '(package-selected-packages
-   (quote
-	(astyle cmake-ide cmake-mode flycheck magit py-autopep8 elpygen elpy)))
+   '(flycheck-rust rust-mode astyle cmake-ide cmake-mode flycheck magit py-autopep8 elpygen elpy))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
