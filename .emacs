@@ -145,10 +145,15 @@
 ;;******************************************************************
 ;; Programm Edition Configuration
 ;;******************************************************************
+;; C/C++ section
 (setq c-default-style
       '((java-mode . "java") (other . "linux")))
 ;; auto format CXX code
 (add-hook 'c-mode-common-hook (lambda () (add-hook 'before-save-hook 'astyle-before-save)))
+;; Rust Mode
+(require 'rust-mode)
+(add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
+(setq rust-format-on-save t)
 ;;******************************************************************
 ;; CEDET Configuration
 ;;******************************************************************
