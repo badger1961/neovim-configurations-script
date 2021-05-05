@@ -1,5 +1,5 @@
 ;;************************************************************
-;; Version A400
+;; Version A401
 ;;************************************************************
 ;; ***********************************************************
 ;; Local Functions
@@ -47,24 +47,16 @@
   (interactive)
   (when (member major-mode '(cc-mode c++-mode c-mode))
     (astyle-this-buffer)))
-
-
 ;; Third party package initialization
 ;;***********************************************************
 (require 'package)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
+(package-refresh-contents)
 ;; Inhibit startup/splash screen
 (setq inhibit-splash-screen   t)
 (setq ingibit-startup-message t) 
-;;*******************************************************
-;; Start Emacs as a server
-;;******************************************************
-(when (system-is-linux)
-    (require 'server)
-    (unless (server-running-p)
-        (server-start))) ;; запустить Emacs как сервер, если ОС - GNU/Linux
 ;;*********************************************
 ;; Interface customization
 ;; *******************************************
@@ -77,7 +69,7 @@
  '(cua-mode t nil (cua-base))
  '(display-time-mode t)
  '(package-selected-packages
-   '(flycheck-rust rust-mode astyle cmake-ide cmake-mode flycheck magit py-autopep8 elpygen elpy))
+   '(cargo rust-mode clang-format cmake-ide cmake-mode flycheck magit py-autopep8 elpygen elpy))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
@@ -128,9 +120,6 @@
 (electric-pair-mode    1) ;; add close {},[],()
 (setq-default indicate-empty-lines t)
 (delete-selection-mode t)
-;;(add-to-list 'write-file-functions 'format-current-buffer)
-;;(add-to-list 'write-file-functions 'untabify-current-buffer)
-;;(add-to-list 'write-file-functions 'delete-trailing-whitespace)
 ;; Bookmark settings
 (require 'bookmark)
 (setq bookmark-save-flag t)
