@@ -1,5 +1,5 @@
 " *************************
-" VIM Initialization script. Version 0.3
+" VIM Initialization script. Version A100
 " **************************
 " **************************
 " Common option setup
