@@ -85,6 +85,7 @@ let g:airline#extensions#xkblayout#enabled = 0
 " *************************
 nmap <F8> :TagbarOpen fjc<CR>
 nmap <F2> :NERDTreeToggle<CR>
+nmap <F3> :Ex<CR>
 nmap <F7> :FzfFiles<CR>
 nmap <F9> :FzfBuffers<CR>
 nmap <F11> :FzfGfiles?<CR>
