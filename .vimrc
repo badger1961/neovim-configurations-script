@@ -1,5 +1,5 @@
 " *************************
-" VIM Initialization script. Version A101
+" VIM Initialization script. Version A102
 " **************************
 " **************************
 " Common option setup
@@ -86,8 +86,8 @@ let g:airline#extensions#xkblayout#enabled = 0
 nmap <F8> :TagbarOpen fjc<CR>
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :Ex<CR>
-nmap <F7> :FzfFiles<CR>
-nmap <F9> :FzfBuffers<CR>
-nmap <F11> :FzfGfiles?<CR>
+nmap <F7> :fzf-files<CR>
+nmap <F9> :fzf-buff<CR>
+nmap <F11> :fzf-gfiles?<CR>
 nnoremap <F12> "=strftime("%d/%m/%y %H:%M")<CR>P
 inoremap <F12> <C-R>=strftime("%d/%m/%y %H:%M")<CR>
