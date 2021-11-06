@@ -22,4 +22,10 @@ return require ('packer').startup(function()
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'mfussenegger/nvim-jdtls'
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 end)

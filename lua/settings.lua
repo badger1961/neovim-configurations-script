@@ -31,18 +31,6 @@ g.gutentags_ctags_extra_args = {'--tag-relative=yes', '--fields=+ailmnS', }
 local statusline = require('statusline')
 statusline.tabline = false
 
--- stylua: ignore
-local colors = {
-  blue   = '#80a0ff',
-  cyan   = '#79dac8',
-  black  = '#080808',
-  white  = '#c6c6c6',
-  red    = '#ff5189',
-  violet = '#d183e8',
-  grey   = '#303030',
-}
-
-
 
 local cmp = require 'cmp'
 cmp.setup {
@@ -171,3 +159,5 @@ telescope.setup {
         },
     }
 }
+
+require('Comment').setup()
