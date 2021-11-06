@@ -1,5 +1,4 @@
 -- Global Settings Configuration --
--- Version A100 --
 --
 -- Aliases begin --
 
@@ -18,7 +17,7 @@ opt.tabstop = 4
 opt.smartindent = true
 -- Main options end --
 -- Gutentag options begin --
-g.gutentags_trace = true
+g.gutentags_trace = false
 g.gutentags_add_default_project_roots = false
 g.gutentags_project_root = {'package.json', '.git'}
 g.gutentags_cache_dir = vim.fn.expand('~/.cache/nvim/ctags/')
@@ -29,11 +28,8 @@ g.gutentags_generate_on_empty_buffer = true
 cmd([[command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')]])
 g.gutentags_ctags_extra_args = {'--tag-relative=yes', '--fields=+ailmnS', }
 
-
--- lualine configuration begin --
--- Bubbles config for lualine
--- Author: lokesh-krishna
--- MIT license, see LICENSE for more details.
+local statusline = require('statusline')
+statusline.tabline = false
 
 -- stylua: ignore
 local colors = {
@@ -46,53 +42,7 @@ local colors = {
   grey   = '#303030',
 }
 
-local bubbles_theme = {
-  normal = {
-    a = { fg = colors.black, bg = colors.violet },
-    b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.black, bg = colors.black },
-  },
 
-  insert = { a = { fg = colors.black, bg = colors.blue } },
-  visual = { a = { fg = colors.black, bg = colors.cyan } },
-  replace = { a = { fg = colors.black, bg = colors.red } },
-
-  inactive = {
-    a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.white, bg = colors.black },
-    c = { fg = colors.black, bg = colors.black },
-  },
-}
-
-require('lualine').setup {
-  options = {
-    theme = bubbles_theme,
-    component_separators = '|',
-    section_separators = { left = '', right = '' },
-  },
-  sections = {
-    lualine_a = {
-      { 'mode', separator = { left = '' }, right_padding = 2 },
-    },
-    lualine_b = { 'filename', 'branch' },
-    lualine_c = { 'fileformat' },
-    lualine_x = {},
-    lualine_y = { 'filetype', 'progress' },
-    lualine_z = {
-      { 'location', separator = { right = '' }, left_padding = 2 },
-    },
-  },
-  inactive_sections = {
-    lualine_a = { 'filename' },
-    lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = { 'location' },
-  },
-  tabline = {},
-  extensions = {},
-}
 
 local cmp = require 'cmp'
 cmp.setup {
@@ -181,19 +131,43 @@ local config = {
   cmd = {
     'c:\\toolchains\\java\\jdk11.0.8\\bin\\java.exe',
     '-Dosgi.bundles.defaultStartLevel=4',
-	'-Declipse.application=org.eclipse.jdt.ls.core.id1',
-	'-Declipse.product=org.eclipse.jdt.ls.core.product',
-	'-Dlog.level=ALL',
-	'-noverify',
-	'-Xmx1G',
-	'-jar ./plugins/org.eclipse.equinox.launcher_1.5.200.v20180922-1751.jar',
-	'-configuration ./config_win',
-	'-data c:\\temp',
-	'--add-modules=ALL-SYSTEM',
-	'--add-opens java.base/java.util=ALL-UNNAMED',
-	'--add-opens java.base/java.lang=ALL-UNNAMED'
+    '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+    '-Declipse.product=org.eclipse.jdt.ls.core.product',
+    '-Dlog.level=ALL',
+    '-noverify',
+    '-Xmx1G',
+    '-jar ./plugins/org.eclipse.equinox.launcher_1.5.200.v20180922-1751.jar',
+    '-configuration ./config_win',
+    '-data c:\\temp',
+    '--add-modules=ALL-SYSTEM',
+    '--add-opens java.base/java.util=ALL-UNNAMED',
+    '--add-opens java.base/java.lang=ALL-UNNAMED'
   },
 
   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'})
 }
 require('jdtls').start_or_attach(config)
+--require('telescope').setup{ defaults = { file_ignore_patterns = {'.Ggit/'} } }
+local telescope = require("telescope")
+telescope.setup {
+    defaults = {
+        file_sorter = require "telescope.sorters".get_fzy_sorter,
+        generic_sorter = require "telescope.sorters".get_fzy_sorter,
+        vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--ignore-file"
+        },
+        file_ignore_patterns = {
+            ".cache/.*",
+            ".idea/.*",
+            "dist/.*",
+            ".git/.*"
+        },
+    }
+}
