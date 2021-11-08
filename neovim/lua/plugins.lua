@@ -31,4 +31,5 @@ return require ('packer').startup(function()
     use 'sbdchd/neoformat'
     use {'vim-airline/vim-airline',
          requires = 'vim-airline/vim-airline-themes'}
+    use 'mfukar/robotframework-vim'
 end)
