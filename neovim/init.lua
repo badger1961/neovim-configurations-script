@@ -1,5 +1,5 @@
 -- neo vim configuration programm
--- version A320
+-- version A330
 require ("plugins")
 require ("settings")
 require ("keymaps")

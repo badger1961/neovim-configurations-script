@@ -17,4 +17,6 @@ map('n', '<F10>', ':Telescop buffers<CR>', default_opts)
 map( 'n',   '<F9>', ':TagbarToggle<CR>', {noremap = true})
 map( 'n',   '<F8>', ':TagbarOpenAutoClose<CR>', {noremap = true})
 map( 'n',   '<C-F><C-J>', ':Neoformat astyle<CR>', {noremap = true})
-
+-- Buffer Switching ---
+map( 'n',   '<C-P>', ':bn<CR>', {noremap = true})
+map( 'n',   '<C-B>', ':bp<CR>', {noremap = true})

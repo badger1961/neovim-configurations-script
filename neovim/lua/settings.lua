@@ -31,7 +31,8 @@ g.gutentags_ctags_extra_args = {'--tag-relative=yes', '--fields=+ailmnS', }
 -- airline setup --
 g.airline_theme='papercolor'
 g['airline#extensions#tabline#enabled'] = true
-g['airline#extensions#tabline#buffer_idx_mode'] = true
+g['airline#extensions#tabline#buffer_nr_show'] = true
+g['airline#extensions#tabline#left_sep'] = ' | '
 
 local cmp = require 'cmp'
 cmp.setup {
