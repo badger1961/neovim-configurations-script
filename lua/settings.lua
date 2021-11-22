@@ -15,6 +15,8 @@ opt.expandtab = true
 opt.shiftwidth = 4
 opt.tabstop = 4
 opt.smartindent = true
+opt.autoread = true
+g.autoread = true
 -- Main options end --
 -- Gutentag options begin --
 g.gutentags_trace = false
