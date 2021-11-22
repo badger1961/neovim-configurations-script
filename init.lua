@@ -1,5 +1,5 @@
 -- neo vim configuration programm
--- version A340
+-- version A360
 require ("plugins")
 require ("settings")
 require ("settings-java")
